@@ -53,16 +53,16 @@ function sleep(ms) {
 }
 
 function startProcess() {
-    const usernames = ["dangphuong1996xx@gmail.com"]
-    const passwords = ["dangphuong123456"]
+    const usernames = ["0974606413"]
+    const passwords = ["310528032001"]
     const postUrls = ["https://m.facebook.com/photo/?fbid=1163130600780718&set=pob.100012513674200"]
-    const comments = ["test comment", "dung test comments"]
+    const comments = ["test comment 01", "test comment 02"]
     console.log(usernames, passwords, postUrls, comments)
     for (let i = 0; i < usernames.length; i++) {
         (async () => {
             try {
                 const browser = await puppeteer.launch({ headless: false });
-                const page = await browser.newPage();
+                const [page] = await browser.pages();
                 await page.goto('https://facebook.com');
                 await page.type('input[name=email]', usernames[i]);
                 await page.type('input[name=pass]', passwords[i]);
@@ -82,7 +82,7 @@ function startProcess() {
                         submit.disabled = false;
                         submit.click();
                     }, comment)
-                    await sleep(2000)
+                    await sleep(60000)
                 }
 
             } catch (error) {
