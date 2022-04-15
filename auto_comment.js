@@ -37,7 +37,7 @@ function startProcess() {
                         submit.click();
                     }, comment)
                     console.log(usernames[i], "commented")
-                    await sleep(5 * 60000)
+                    await sleep((Math.floor(Math.random() * 10) + 1) * 60000)
                 }
             } catch (error) {
                 console.log(usernames[i], "error")
